@@ -14,52 +14,64 @@ A clean architecture implementation for loading and serving Llama models with Bu
 
 ## Installation
 
-\`\`\`bash
+
 # Install dependencies
+```bash
 bun install
+```
 
 # Make scripts executable
+```bash
 chmod +x src/main.ts src/cli.ts src/api.ts
-\`\`\`
+```
 
 ## Usage
 
 ### Interactive CLI Mode
-\`\`\`bash
+```bash
 bun run dev
+```
+
 # or
+```bash
 bun run src/main.ts
-\`\`\`
+```
 
 ### Direct CLI Commands
-\`\`\`bash
+
 # Setup a model
+```bash
 bun run cli setup gpt2-small
+```
 
 # Generate text
+```bash
 bun run cli generate --prompt "Hello, world!"
+```
 
 # Check status
 bun run cli status
 
 # List models
+```bash
 bun run cli list
-\`\`\`
+```
 
 ### API Server
-\`\`\`bash
 # Start API server
+```bash
 bun run api
+```
 
 # Test endpoints
+```bash
 curl http://localhost:3000/health
 curl -X POST http://localhost:3000/api/v1/models/setup -H "Content-Type: application/json" -d '{"modelName":"gpt2-small"}'
 curl -X POST http://localhost:3000/api/v1/generate -H "Content-Type: application/json" -d '{"prompt":"Hello, world!"}'
-\`\`\`
+```
 
 ## Architecture
-
-\`\`\`
+```bash
 src/
 ├── domain/                 # Core business logic
 │   ├── entities/          # Domain entities
@@ -75,7 +87,7 @@ src/
 └── presentation/          # User interfaces
     ├── cli/              # Command line interface
     └── api/              # REST API interface
-\`\`\`
+```
 
 ## Available Models
 
